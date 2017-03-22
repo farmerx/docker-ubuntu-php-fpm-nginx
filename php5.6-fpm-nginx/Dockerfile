@@ -36,15 +36,16 @@ CMD ["/usr/bin/supervisord"]
 #RUN apt-get install -y php7.0-pgsql
 
 
-RUN add-apt-repository ppa:zanfur/php5.6 -y
+RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update
-RUN add-get install php5.6 -y
-RUN apt-get install php5.6-mysql -y
-RUN apt-get install php5.6-pgsql -y 
-RUN apt-get install php5.6-curl -y
-RUN apt-get install php5.6-gd -y
-RUN apt-get install php5.6-fpm -y
-
+RUN apt-get install php5.6 -y --allow-unauthenticated
+RUN apt-get install php5.6-mysql -y  --allow-unauthenticated
+RUN apt-get install php5.6-pgsql -y  --allow-unauthenticated
+RUN apt-get install php5.6-curl -y  --allow-unauthenticated
+RUN apt-get install php5.6-gd -y  --allow-unauthenticated
+RUN apt-get install php5.6-fpm -y  --allow-unauthenticated
+RUN apt-get install php5.6-sqlite3 -y  --allow-unauthenticated
+RUN apt-get install php5.6-mbstring -y  --allow-unauthenticated
 # 配置文件修改
 
 RUN ["mkdir","-p","/run/php"]
